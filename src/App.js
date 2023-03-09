@@ -8,7 +8,6 @@ import AddArticle from './pages/AddArticle/AddArticle'
 import ArticleDetails from './pages/ArticleDetails/ArticleDetails'
 
 function App() {
-      // const categories = ["Health", "Food", "Travel", "Technology"];
   return (
     <BrowserRouter>
     <Header />
