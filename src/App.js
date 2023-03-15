@@ -4,8 +4,8 @@ import Header from './components/Header/Header.js'
 import CategoryArticles from './pages/CategoryArticle/CategoryArticles'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Auth from './pages/Auth/Auth'
-// import AddArticle from './pages/AddArticle/AddArticle'
-// import ArticleDetails from './pages/ArticleDetails/ArticleDetails'
+import AddArticle from './pages/AddArticle/AddArticle'
+import ArticleDetails from './pages/ArticleDetails/ArticleDetails'
 
 function App() {
 
