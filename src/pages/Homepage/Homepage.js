@@ -29,9 +29,11 @@ function Homepage() {
 
   return (
     <div>
+      <h1>Editors Choice</h1>
+
       <Banner />
+      
       <div className='selected-articles'>
-        <h1>Editors Choice</h1>
         {
           selectedArticles?.map(item => {
             return <div key={item.id}>
