@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ArticleCard from '../../components/ArticleCard/ArticleCard'
+import {db} from '../../config/firebaseConfig'
+import {getDocs, query, collection, where} from 'firebase/firestore'
+
 
 
 function CategoryArticles() {
@@ -8,8 +11,31 @@ function CategoryArticles() {
   const [articles, setArticles]=useState([])
 
 
+  useEffect(()=>{
+    const articleRef = collection(db, 'articles')
+    const q = query(articleRef, where('categoryName', "==", categoryName))
+    getDocs(q, articleRef)
+    .then(res => {
+      const articles = res.docs.map(item => ({
+        id: item.id,
+        ...item.data()
+
+    }))
+        setArticles(articles)
+  })
+
+  .catch(err=>console.log(err))
+  }, [categoryName])
+
+
+
   return (
-    <div>
+    <div className='category-articles'>
+      {
+        articles.map(item => {
+          return <ArticleCard key={item.id} article={item} />
+        })
+      }
       
     </div>
   )

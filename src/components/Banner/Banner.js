@@ -28,18 +28,20 @@ function Banner() {
 
   return (
     <div className='banner-container'>
-      <div className='main-article-container' style={{backgroundImage: `url(${mainArticle.image})`}}></div>
+      <div className='main-article-container' style={{backgroundImage: `url(${mainArticle.image})`}}>
 
 
         <div className='banner-info'>
           <h2>{mainArticle?.title}...</h2>
           <small>{mainArticle?.createdAt?.toDate().toDateString()}</small>
         </div>
+        </div>
 
       <div className='other-articles-container'>
         
         {
           otherArticles && otherArticles.map(item => {
+            
             return (
             <div key={item.id} onClick={() => navigate(`/article/${item}`)} className='other-article-item' style={{backgroundImage: `url(${item.image})`}}>
             <div className='banner-info'>

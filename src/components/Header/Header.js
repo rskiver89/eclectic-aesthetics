@@ -14,6 +14,12 @@ function Header({categories}) {
     <div className='header-container'>
         <FaHome className='home-icon' onClick={()=> navigate('/')} />
 
+        {
+          user
+          ? <Link className='auth-link' to='addArticle'>Add Article</Link>
+          : null
+        }
+
       <div className='categories-container'>
         {
             categories.map((item, index)=>{
@@ -29,7 +35,8 @@ function Header({categories}) {
         <button onClick={()=>signOut(auth)} className='auth-link'>Logout</button>
       </div>
       : <Link className='auth-link' to={'/auth'}> Signup </Link>   
-      }     
+      } 
+
     </div>
   )
 }

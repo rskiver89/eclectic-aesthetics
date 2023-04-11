@@ -36,11 +36,13 @@ function Homepage() {
       <div className='selected-articles'>
         {
           selectedArticles?.map(item => {
-            return <div key={item.id}>
+            return (
+            <div key={item.id}>
               <p>{item.title}</p>
-              <img src={item.imageUrl} style={{width: '200px'}} />
+              <img src={item.image} style={{width: '200px'}} />
               <p onClick={() => navigate(`/article/${item.id}`)}>Read</p>
             </div>
+          )
           })
         }
 

@@ -18,6 +18,8 @@ function App() {
       <Route path='/' element={<Homepage />} />
       <Route path='/category/:categoryName' element={<CategoryArticles />}/>
       <Route path='/auth' element={<Auth />} />
+      <Route path='/addarticle' element={<AddArticle categories={categories} />} />
+      <Route path='/article/:articleId' element={<ArticleDetails />} />
     </Routes>
     </BrowserRouter>
   );
