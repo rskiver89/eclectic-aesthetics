@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import {getDoc, doc} from 'firebase/firestore';
-import {db} from '../../config/firebaseConfig';
-import './ArticleDetails.css';
+import './ArticleDetails.css'
 import Likes from '../../components/Likes/Likes'
 import Comments from '../../components/Comments/Comments'
+import {db} from '../../config/firebaseConfig'
+import {getDoc, doc} from 'firebase/firestore'
 
 function ArticleDetails() {
     const {articleId} = useParams();
-    const [article, setArticle] = useState('');
+    const [article, setArticles]=useState('')
 
 
 
-    useEffect(() => {
-      const docRef = doc(db, 'articles', articleId)
+    useEffect(()=>{
+      const docRef=doc(db, 'articles', articleId)
       getDoc(docRef)
       .then(res=>{
-        setArticle(res.data())
+        setArticles(res.data())
+        console.log(res.data)
       })
       .catch(err=>console.log(err))
     }, [])
@@ -26,9 +27,10 @@ function ArticleDetails() {
 
   return (
     <div className='details-container'>
+      <h1>text</h1>
         <h1>{article?.title}</h1>
         <h2>{article?.description}</h2>
-        {/* <div className='details-info-container'>
+        <div className='details-info-container'>
             <p><span className='article-span'>Author : </span> {article?.createdBy?.toUpperCase()}</p>
             <p><span className='article-span'>Published : </span> {article?.createdAt?.toDate().toDateString}</p>
             <Likes articleId={articleId} />
@@ -38,7 +40,7 @@ function ArticleDetails() {
                 <img className='details-image' src={article?.image} />
                 <p className='article-description'>{article?.paragraphOne}</p>
             </div>
-            <Comments /> */}
+            <Comments articleId={articleId} />
       
     </div>
   )
