@@ -11,7 +11,7 @@ import {v4} from 'uuid'
 
 
 
-function AddArticle(categories) {
+function AddArticle({categories}) {
   const [user]=useAuthState(auth);
   let navigate = useNavigate();
 
@@ -22,17 +22,20 @@ function AddArticle(categories) {
     paragraphTwo: '',
     paragraphThree: '',
     category: '',
-    image: ''
+    imageData: ''
 
   })
 
   const createArticle = (e) => {
     e.preventDefault()
-    const imageRef=ref(storage, `images/${formData.image.name + v4()}`)
-    uploadBytes(imageRef, formData.image)
+    const imageRef=ref(storage, `images/${formData.imageData.name + v4()}`)
+    uploadBytes(imageRef, formData.imageData)
     .then(res=>{
+      console.log(res)
       getDownloadURL(res.ref)
       .then(url=> {
+        console.log(url)
+
         const articleRef=collection(db, 'articles')
         addDoc(articleRef, {
           title: formData.title,
@@ -40,7 +43,7 @@ function AddArticle(categories) {
           paragraphOne: formData.paragraphOne,
           paragraphTwo: formData.paragraphTwo,
           paragraphThree: formData.category,
-          category: formData.title,
+          category: formData.category,
           image: url,
           createdAt: Timestamp.now().toDate(),
           createdBy: user?.displayName
@@ -52,6 +55,9 @@ function AddArticle(categories) {
           }, 2000);
         })
       })
+      })
+      .catch(err=>{
+        console.log(err)
     })
   }
 
@@ -107,11 +113,11 @@ function AddArticle(categories) {
         <label htmlFor="category">Category:</label>
         <select name="category" onChange={(e)=>setFormData({...formData,category:e.target.value})}>
             <option value="">Select a category</option>
-            {/* {
+            {
               categories?.map((item, index)=>{
                 return <option key={index} value={item}>{item}</option>
               })
-            } */}
+            }
         </select>
         </div>
 

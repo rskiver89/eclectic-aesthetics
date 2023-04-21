@@ -14,7 +14,7 @@ function CategoryArticles() {
 
   useEffect(()=>{
     const articleRef = collection(db, 'articles')
-    const q = query(articleRef, where('categoryName', "==", categoryName))
+    const q = query(articleRef, where('category', "==", categoryName))
     getDocs(q, articleRef)
     .then(res => {
       const articles = res.docs.map(item => ({
@@ -33,7 +33,6 @@ function CategoryArticles() {
 
   return (
     <div className='category-articles'>
-      {/* {categoryName} */}
 
       {
         articles.map(item => {

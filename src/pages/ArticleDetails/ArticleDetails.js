@@ -17,7 +17,7 @@ function ArticleDetails() {
       getDoc(docRef)
       .then(res=>{
         setArticles(res.data())
-        console.log(res.data)
+        console.log(res.data())
       })
       .catch(err=>console.log(err))
     }, [])
@@ -39,6 +39,8 @@ function ArticleDetails() {
             <div style={{borderBottom: 'solid 1px grey', paddingBottom: '10px', marginBottom: '10px'}}>
                 <img className='details-image' src={article?.image} />
                 <p className='article-description'>{article?.paragraphOne}</p>
+                <p className='article-description'>{article?.paragraphTwo}</p>
+                <p className='article-description'>{article?.paragraphThree}</p>
             </div>
             <Comments articleId={articleId} />
       

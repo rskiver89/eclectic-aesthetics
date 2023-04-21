@@ -43,7 +43,7 @@ function Banner() {
           otherArticles && otherArticles.map(item => {
             
             return (
-            <div key={item.id} onClick={() => navigate(`/article/${item}`)} className='other-article-item' style={{backgroundImage: `url(${item.image})`}}>
+            <div key={item.id} onClick={() => navigate(`/article/${item.id}`)} className='other-article-item' style={{backgroundImage: `url(${item.image})`}}>
             <div className='banner-info'>
               <h3>{item?.title}...</h3>
               <small>{item?.createdAt?.toDate().toDateString()}</small>

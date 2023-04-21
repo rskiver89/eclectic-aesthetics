@@ -5,7 +5,7 @@ import './ArticleCard.css'
 function ArticleCard({article}) {
   return (
     <div className='article-card'>
-      <img src={article.imageUrl} alt='Article' />
+      <img src={article.image} alt='Article' />
       <div className='article-card-info'>
         <p>{article.title}</p>
         <Link to={`/article/${article.id}`}>Read</Link>
