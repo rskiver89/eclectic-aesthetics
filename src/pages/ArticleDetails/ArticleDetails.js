@@ -27,7 +27,6 @@ function ArticleDetails() {
 
   return (
     <div className='details-container'>
-      <h1>text</h1>
         <h1>{article?.title}</h1>
         <h2>{article?.description}</h2>
         <div className='details-info-container'>
