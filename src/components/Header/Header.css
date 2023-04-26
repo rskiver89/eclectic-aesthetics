@@ -52,7 +52,6 @@ button {
   cursor: pointer;
 }
 
-/* Responsive styles */
 @media (max-width: 569px) {
     .header-container {
         margin-top: -28px;
