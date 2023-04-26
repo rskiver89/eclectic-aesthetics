@@ -1,0 +1,60 @@
+.comments-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .comment {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .comment-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .comment p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .submit-button {
+    background-color: #ff4444;
+    color: #fff;
+    font-size: 12px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  form input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  
+  form button {
+    background-color: #3498db;
+    margin-left: 10px;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #555;
+  }
+  

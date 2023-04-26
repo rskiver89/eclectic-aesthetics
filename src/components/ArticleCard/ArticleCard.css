@@ -1,23 +1,55 @@
 .article-card{
-    background-color: pink;
-    margin:10px;
-    height:fit-content;
-  }
-  .article-card img{
-    width:100%;
-    height:200px;
-    object-fit: cover;
-  }
-  .article-card-info{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding:0 2px;
-  }
-  .article-card-info a{
-      text-decoration: none;
-      color:black;
-      font-size:0.7rem;
-      cursor:pointer;
-      align-self:flex-end;
-  }
+  background-color: #f0f0f0;
+  margin: 10px;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+}
+
+.article-card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.article-card-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 2px;
+}
+
+.article-card-info h3 {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.article-card-info p {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.article-card-info small {
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+}
+
+.article-card-info a{
+  text-decoration: none;
+  color: #4e4e4e;
+  font-size: 0.9rem;
+  cursor: pointer;
+  align-self: flex-end;
+  font-weight: 600;
+}
+
+.article-card-info a:hover {
+  color: #2d2d2d;
+}

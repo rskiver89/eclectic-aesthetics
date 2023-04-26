@@ -9,7 +9,7 @@ import ArticleDetails from './pages/ArticleDetails/ArticleDetails'
 
 function App() {
 
-  const categories = ['Health', 'Food', 'Travel', 'Technology'];
+  const categories = ['Health', 'Food', 'Travel', 'Tech'];
   
   return (
     <BrowserRouter>

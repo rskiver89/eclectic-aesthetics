@@ -72,7 +72,7 @@ function Comments({articleId}) {
                 type='text'
                 onChange={(e) => setNewComment(e.target.value)}
               />
-              <button type='submit'>Add new comment</button>
+              <button className='submit-button' type='submit'>Add new comment</button>
             </form>
           ) : (
             <p>Please login to comment</p>

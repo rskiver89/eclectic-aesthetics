@@ -11,14 +11,9 @@ function Header({categories}) {
     let navigate=useNavigate();
     const [user]=useAuthState(auth)
   return (
+    <div className=''>
+    <div className='header-accent'></div>
     <div className='header-container'>
-        <FaHome className='home-icon' onClick={()=> navigate('/')} />
-
-        {
-          user
-          ? <Link className='auth-link' to='addArticle'>Add Article</Link>
-          : null
-        }
 
       <div className='categories-container'>
         {
@@ -28,15 +23,23 @@ function Header({categories}) {
         }
       </div>
 
+      <FaHome className='home-icon' onClick={()=> navigate('/')} />
+
       {
       user? 
-      <div>
+      <div className='user-container'>
         <span className='username'>{user?.displayName ? user?.displayName : user?.email} </span>
+        {
+          user
+          ? <Link className='auth-link' to='addArticle'>Add Article</Link>
+          : null
+        }
         <button onClick={()=>signOut(auth)} className='auth-link'>Logout</button>
       </div>
       : <Link className='auth-link' to={'/auth'}> Signup </Link>   
       } 
 
+    </div>
     </div>
   )
 }

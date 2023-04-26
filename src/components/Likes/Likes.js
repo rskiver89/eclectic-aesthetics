@@ -62,12 +62,12 @@ function Likes({ articleId }) {
     <div style={{ marginLeft: "10px", display: "flex", alignItems: "center", cursor: "pointer" }}>
       {isLiked ? (
         <div>
-          <FaHeart onClick={handleUnlike} />
+          <FaHeart onClick={handleUnlike} style={{margin: '0 8px'}} />
           <span>{likeCount}</span>
         </div>
       ) : (
         <div>
-          <FaRegHeart onClick={handleLike} />
+          <FaRegHeart onClick={handleLike} style={{margin: '0 8px'}} />
           <span>{likeCount}</span>
         </div>
       )}
