@@ -1,54 +1,75 @@
 .header-accent {
-    background-color: #4e4e4e;
-    height: 24px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #4e4e4e;
+  height: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    margin-bottom: 32px;
-  }
-  
-  .home-icon {
-    font-size: 24px;
-    color: #4e4e4e;
-    cursor: pointer;
-  }
-  
-  .auth-link,
-  .nav-link {
-    color: #4e4e4e;
-    text-decoration: none;
-    font-size: 14px;
-    margin-right: 20px;
-    transition: all 0.3s ease;
-  }
-  
-  .auth-link:hover,
-  .nav-link:hover {
-    color: #ff7096;
-  }
-  
-  .categories-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .username {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-right: 10px;
-  }
-  
-  button {
-    background:none;
-    border:none;
-    margin:0;
-    padding:0;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.home-icon {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.auth-link,
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+}
+
+.auth-link:hover,
+.nav-link:hover {
+  color: #ff7096;
+}
+
+.categories-container {
+  display: flex;
+}
+
+.username {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-right: 10px;
+}
+
+button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 569px) {
+    .header-container {
+        margin-top: -28px;
+    }
+
+    .categories-container {
+        flex-direction: column;
+        margin-top: 32px;
+    }
+    
+    .signin-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .username {
+        margin-right: 20px;
+    }
+}

@@ -11,7 +11,7 @@ function Header({categories}) {
     let navigate=useNavigate();
     const [user]=useAuthState(auth)
   return (
-    <div className=''>
+    <div className='header-wrapper'>
     <div className='header-accent'></div>
     <div className='header-container'>
 
@@ -25,9 +25,11 @@ function Header({categories}) {
 
       <FaHome className='home-icon' onClick={()=> navigate('/')} />
 
+      <div>
+
       {
       user? 
-      <div className='user-container'>
+      <div className='signin-container'>
         <span className='username'>{user?.displayName ? user?.displayName : user?.email} </span>
         {
           user
@@ -38,6 +40,8 @@ function Header({categories}) {
       </div>
       : <Link className='auth-link' to={'/auth'}> Signup </Link>   
       } 
+
+      </div>
 
     </div>
     </div>
