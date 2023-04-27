@@ -9,7 +9,7 @@
 
 body {
     background-color: antiquewhite;
-    padding-top: 80px;
+    padding-top: 90px;
 }
 
 :root{
@@ -20,4 +20,10 @@ body {
     --light-bg:#f7f3f3;
     --button-bg:rgb(77, 77, 156);
     --transparent-bg:rgba(20, 20, 20, 0.7);
+  }
+
+  @media (max-width: 800px) {
+    body {
+        padding-top: 150px;
+    }
   }

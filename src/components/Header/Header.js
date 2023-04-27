@@ -1,15 +1,23 @@
 import React from 'react'
 import './Header.css'
 import {FaHome} from 'react-icons/fa'
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import {auth} from '../../config/firebaseConfig'
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {signOut} from 'firebase/auth'
 
 function Header({categories}) {
-
-    let navigate=useNavigate();
+    const location = useLocation()
+    let navigate=useNavigate()
     const [user]=useAuthState(auth)
+
+    const isActive = (category) => {
+      const categoryPath = `/category/${category}`;
+      return location.pathname === categoryPath;
+    };
+    
+
+
   return (
     <div className='header-wrapper'>
     <div className='header-accent'></div>
@@ -18,13 +26,19 @@ function Header({categories}) {
       <div className='categories-container'>
         {
             categories.map((item, index)=>{
-                return <Link key={index} className='nav-link' to={`/category/${item}`}>{item}</Link>
+              return (
+                <Link
+                  key={index}
+                  className={`nav-link${isActive(item) ? " active" : ""}`}
+                  to={`/category/${item}`}
+                >
+                  {item}
+                </Link>
+              );              
             })
         }
       </div>
-
-      {/* <FaHome className='home-icon' onClick={()=> navigate('/')} /> */}
-      <Link to={'/'} style={{textDecoration: 'none'}}><h1>Eclectic Aesthetics</h1></Link>
+      <Link to={'/'} style={{textDecoration: 'none'}}><h1 className='title'>Eclectic Aesthetics</h1></Link>
 
       <div>
 
