@@ -23,7 +23,8 @@ function Header({categories}) {
         }
       </div>
 
-      <FaHome className='home-icon' onClick={()=> navigate('/')} />
+      {/* <FaHome className='home-icon' onClick={()=> navigate('/')} /> */}
+      <Link to={'/'} style={{textDecoration: 'none'}}><h1>Eclectic Aesthetics</h1></Link>
 
       <div>
 

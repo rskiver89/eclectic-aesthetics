@@ -1,7 +1,10 @@
 .category-articles{
-    min-height:100vh;
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 @media(max-width:768px){
     .category-articles{

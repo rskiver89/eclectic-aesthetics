@@ -18,9 +18,6 @@ function AddArticle({categories}) {
   const [formData, setFormData]=useState({
     title: '',
     summary: '',
-    paragraphOne: '',
-    paragraphTwo: '',
-    paragraphThree: '',
     category: '',
     imageData: ''
 
@@ -31,18 +28,14 @@ function AddArticle({categories}) {
     const imageRef=ref(storage, `images/${formData.imageData.name + v4()}`)
     uploadBytes(imageRef, formData.imageData)
     .then(res=>{
-      console.log(res)
       getDownloadURL(res.ref)
       .then(url=> {
         console.log(url)
 
-        const articleRef=collection(db, 'articles')
+        const articleRef=collection(db, 'content')
         addDoc(articleRef, {
           title: formData.title,
           summary: formData.summary,
-          paragraphOne: formData.paragraphOne,
-          paragraphTwo: formData.paragraphTwo,
-          paragraphThree: formData.category,
           category: formData.category,
           image: url,
           createdAt: Timestamp.now().toDate(),
@@ -62,15 +55,13 @@ function AddArticle({categories}) {
   }
 
 
-
-
   return (
     <div className='add-articleContainer'>
       <form className='add-article-form' onSubmit={createArticle}>
         <h2>Create Article</h2>
 
         <div className='input-group'>
-        <labe htmlFor='title'>Title: </labe>
+        <label htmlFor='title'>Title: </label>
         <input type='text' name='name' placeholder='Maximum 100 Characters' maxLength='100'
         onChange={(e)=>setFormData({...formData,title:e.target.value})}
         />
@@ -83,30 +74,6 @@ function AddArticle({categories}) {
         placeholder='Maximum 120 characters'
         maxLength='120'
         onChange={(e)=>setFormData({...formData,summary:e.target.value})} />
-        </div>
-
-        <div className='input-group'>
-        <label htmlFor='paragraphOne'>Paragraph One</label>
-        <textarea name='paragraphOne'
-        placeholder='Maximum 650 characters'
-        maxLength='120'
-        onChange={(e)=>setFormData({...formData,paragraphOne:e.target.value})} />
-        </div>
-
-        <div className='input-group'>
-        <label htmlFor='paragraphTwo'>Paragraph Two</label>
-        <textarea name='paragraphTwo'
-        placeholder='Maximum 650 characters'
-        maxLength='120'
-        onChange={(e)=>setFormData({...formData,paragraphTwo:e.target.value})} />
-        </div>
-
-        <div className='input-group'>
-        <label htmlFor='paragraphThree'>Paragraph Three</label>
-        <textarea name='paragraphThree'
-        placeholder='Maximum 650 characters'
-        maxLength='120'
-        onChange={(e)=>setFormData({...formData,paragraphThree:e.target.value})} />
         </div>
 
         <div className='input-group'>

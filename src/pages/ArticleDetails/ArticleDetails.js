@@ -13,7 +13,7 @@ function ArticleDetails() {
 
 
     useEffect(()=>{
-      const docRef=doc(db, 'articles', articleId)
+      const docRef=doc(db, 'content', articleId)
       getDoc(docRef)
       .then(res=>{
         setArticles(res.data())
@@ -31,15 +31,13 @@ function ArticleDetails() {
         <h2>{article?.description}</h2>
         <div className='details-info-container'>
             <p><span className='article-span'>Author : </span> {article?.createdBy?.toUpperCase()}</p>
-            <p><span className='article-span'>Published : </span> {article?.createdAt?.toDate().toDateString}</p>
+            <p><span className='article-span'>Published : </span> {article?.createdAt?.toDate().toDateString()}</p>
             <Likes articleId={articleId} />
         </div>
 
             <div style={{borderBottom: 'solid 1px grey', paddingBottom: '10px', marginBottom: '10px'}}>
                 <img className='details-image' src={article?.image} />
-                <p className='article-description'>{article?.paragraphOne}</p>
-                <p className='article-description'>{article?.paragraphTwo}</p>
-                <p className='article-description'>{article?.paragraphThree}</p>
+                <p className='article-description'>{article?.summary}</p>
             </div>
             <Comments articleId={articleId} />
       

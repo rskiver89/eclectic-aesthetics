@@ -2,8 +2,9 @@
     min-height:100vh;
 }
 .add-article-form{
+    background-color: white;
     width:80%;
-    margin:20vh auto;
+    margin: auto;
     padding:20px 0;
     display: flex;
     flex-direction: column;

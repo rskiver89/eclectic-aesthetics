@@ -13,7 +13,7 @@ function CategoryArticles() {
 
 
   useEffect(()=>{
-    const articleRef = collection(db, 'articles')
+    const articleRef = collection(db, 'content')
     const q = query(articleRef, where('category', "==", categoryName))
     getDocs(q, articleRef)
     .then(res => {
