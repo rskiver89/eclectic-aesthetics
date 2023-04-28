@@ -29,7 +29,7 @@ function Homepage() {
               <p>{item.title}</p>
             </div>
             <img src={item.image} alt={item.title} />
-          </div>
+          </div> 
         );
       })}
 
